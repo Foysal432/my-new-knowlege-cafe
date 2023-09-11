@@ -12,14 +12,17 @@ function App() {
  const [bookmarks,setBookmarks]=useState([])
  const[readingTime, setReadingTime]=useState(0)
 //  for reading time
-const handleReadingTime=time=>{
+const handleReadingTime=(id,time)=>{
   setReadingTime(readingTime+time)
+  const RemainingBookmarks=bookmarks.filter(bookmark=>bookmark.id !== id);
+  setBookmarks(RemainingBookmarks)
 }
 //  for bookmark
 const handleBookmark =blog=>{
   console.log(blog)
   const newBooksMarks=[...bookmarks,blog];
   setBookmarks(newBooksMarks)
+  
  
 }
   return (
